@@ -2,23 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LSEMS Application Portal</title>
     <link rel="stylesheet" href="style.css">
-    <title>Recruitment Portal</title>
 </head>
 <body>
-    <div class="app-container">
-        <h1>GOVERNMENT RECRUITMENT</h1>
-        <hr>
-        <label>Full Name</label>
-        <input type="text" id="charName" placeholder="Firstname Lastname">
+    <div class="container">
+        <header>
+            <img src="https://i.imgur.com/a32OdzR.png" alt="LSEMS Logo" class="logo">
+            <h1>LSEMS Recruitment Portal</h1>
+        </header>
 
-        <label>Phone Number</label>
-        <input type="text" id="phone" placeholder="123456">
+        <div class="form-section">
+            <h3>Section 1: Personal Information</h3>
+            <div class="grid">
+                <input type="text" id="title" placeholder="Title (Mr/Ms/etc)">
+                <input type="text" id="fName" placeholder="First Name">
+                <input type="text" id="lName" placeholder="Last Name">
+            </div>
+            <select id="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+            <div class="grid">
+                <input type="text" id="pob" placeholder="Place of Birth">
+                <input type="text" id="dob" placeholder="Date of Birth">
+            </div>
+            <div class="grid">
+                <input type="text" id="weight" placeholder="Weight">
+                <input type="text" id="height" placeholder="Height">
+                <input type="text" id="phone" placeholder="Phone Number">
+            </div>
+            <textarea id="conviction" placeholder="Conviction History? Explain."></textarea>
+            <input type="text" id="idLink" placeholder="Link to ID/License Documents">
+        </div>
 
-        <label>Why should we hire you?</label>
-        <textarea id="reason" rows="6"></textarea>
+        <div class="form-section">
+            <h3>Section 3: Motivation (Min 75 words each)</h3>
+            <textarea id="motivation" placeholder="Why join LSEMS?"></textarea>
+            <textarea id="candidate" placeholder="Why are you a good candidate?"></textarea>
+            <textarea id="bio" placeholder="Biography & Most Valuable Trait"></textarea>
+        </div>
 
-        <button onclick="submitApp()">Generate & Open Forum</button>
+        <div class="form-section">
+            <h3>Section 4: OOC Information</h3>
+            <input type="text" id="discord" placeholder="Discord Username">
+            <input type="text" id="forumLink" placeholder="Forum Profile Link">
+            <input type="text" id="adminRecord" placeholder="Admin Record Image Link">
+        </div>
+
+        <button onclick="generateBBCode()">Generate & Open Forum</button>
     </div>
     <script src="script.js"></script>
 </body>
