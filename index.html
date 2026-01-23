@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>BBCode Generator</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Recruitment Portal</title>
 </head>
 <body>
-    <h2>BBCode Tool</h2>
-    <input type="text" id="userInput" placeholder="Enter text here">
-    <button onclick="processAndRedirect()">Submit</button>
+    <div class="app-container">
+        <h1>GOVERNMENT RECRUITMENT</h1>
+        <hr>
+        <label>Full Name</label>
+        <input type="text" id="charName" placeholder="Firstname Lastname">
 
-    <p>Generated Code: <span id="display"></span></p>
+        <label>Phone Number</label>
+        <input type="text" id="phone" placeholder="123456">
 
+        <label>Why should we hire you?</label>
+        <textarea id="reason" rows="6"></textarea>
+
+        <button onclick="submitApp()">Generate & Open Forum</button>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
