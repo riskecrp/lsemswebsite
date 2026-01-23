@@ -2,57 +2,124 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LSEMS Application Portal</title>
+    <title>LSEMS | Recruitment Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="https://i.imgur.com/a32OdzR.png" alt="LSEMS Logo" class="logo">
-            <h1>LSEMS Recruitment Portal</h1>
-        </header>
+    <div class="portal-wrapper">
+        <div class="header-branding">
+            <img src="https://i.imgur.com/a32OdzR.png" alt="LSEMS">
+            <h1>Employment Application</h1>
+        </div>
 
-        <div class="form-section">
-            <h3>Section 1: Personal Information</h3>
-            <div class="grid">
-                <input type="text" id="title" placeholder="Title (Mr/Ms/etc)">
-                <input type="text" id="fName" placeholder="First Name">
-                <input type="text" id="lName" placeholder="Last Name">
+        <div class="section-box">
+            <div class="section-title">SECTION 1 - PERSONAL INFORMATION</div>
+            <div class="grid-row">
+                <div class="input-group">
+                    <label>Title</label>
+                    <input type="text" id="title" placeholder="Mr./Ms./Mrs.">
+                </div>
+                <div class="input-group">
+                    <label>First Name</label>
+                    <input type="text" id="fName">
+                </div>
+                <div class="input-group">
+                    <label>Last Name</label>
+                    <input type="text" id="lName">
+                </div>
             </div>
-            <select id="gender">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
+
+            <div class="grid-row">
+                <div class="input-group">
+                    <label>Gender</label>
+                    <select id="gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Date of Birth</label>
+                    <input type="text" id="dob" placeholder="DD/MMM/YYYY">
+                </div>
+                <div class="input-group">
+                    <label>Place of Birth</label>
+                    <input type="text" id="pob">
+                </div>
+            </div>
+
+            <div class="grid-row">
+                <div class="input-group">
+                    <label>Weight</label>
+                    <input type="text" id="weight">
+                </div>
+                <div class="input-group">
+                    <label>Height</label>
+                    <input type="text" id="height">
+                </div>
+                <div class="input-group">
+                    <label>Phone Number</label>
+                    <input type="text" id="phone">
+                </div>
+            </div>
+            
+            <label>Criminal Record & Felon Reformation Details</label>
+            <textarea id="crimRecord" rows="3" placeholder="Explain convictions or Reformation Program status..."></textarea>
+            
+            <label>ID & License Link</label>
+            <input type="text" id="idLink" placeholder="imgur.com/your-id">
+        </div>
+
+        <div class="section-box">
+            <div class="section-title">SECTION 2 - EXPERIENCE & HISTORY</div>
+            <label>Qualifying Education/Training</label>
+            <textarea id="expQuals" rows="3"></textarea>
+            
+            <div class="grid-row">
+                <div class="input-group"><label>Last Company</label><input type="text" id="prevCo"></div>
+                <div class="input-group"><label>Employment Term</label><input type="text" id="term"></div>
+            </div>
+            
+            <div class="grid-row">
+                <div class="input-group">
+                    <label>Proficient English?</label>
+                    <select id="english"><option value="Yes">Yes</option><option value="No">No</option></select>
+                </div>
+                <div class="input-group"><label>Other Languages</label><input type="text" id="otherLangs"></div>
+            </div>
+        </div>
+
+        <div class="section-box">
+            <div class="section-title">SECTION 3 - GENERAL QUESTIONS (75+ Words)</div>
+            <label>Motivation to join LSEMS</label>
+            <textarea id="motivation" rows="5"></textarea>
+            
+            <label>Why are you a good candidate?</label>
+            <textarea id="candidate" rows="5"></textarea>
+            
+            <label>Short Biography & Traits</label>
+            <textarea id="bio" rows="5"></textarea>
+        </div>
+
+        <div class="section-box">
+            <div class="section-title">SECTION 4 - OOC INFORMATION</div>
+            <div class="grid-row">
+                <div class="input-group"><label>Discord</label><input type="text" id="discord"></div>
+                <div class="input-group"><label>Forum Name</label><input type="text" id="forumName"></div>
+                <div class="input-group"><label>Forum Link</label><input type="text" id="forumLink"></div>
+            </div>
+            <label>Admin Record Link (Panel Screenshot)</label>
+            <input type="text" id="adminRecord">
+            
+            <label>AI Confirmation</label>
+            <select id="aiConfirm">
+                <option value="Yes">Yes, I wrote this myself.</option>
+                <option value="Grammar">I used Grammar-assist only.</option>
+                <option value="AI">I utilized AI generators.</option>
             </select>
-            <div class="grid">
-                <input type="text" id="pob" placeholder="Place of Birth">
-                <input type="text" id="dob" placeholder="Date of Birth">
-            </div>
-            <div class="grid">
-                <input type="text" id="weight" placeholder="Weight">
-                <input type="text" id="height" placeholder="Height">
-                <input type="text" id="phone" placeholder="Phone Number">
-            </div>
-            <textarea id="conviction" placeholder="Conviction History? Explain."></textarea>
-            <input type="text" id="idLink" placeholder="Link to ID/License Documents">
         </div>
 
-        <div class="form-section">
-            <h3>Section 3: Motivation (Min 75 words each)</h3>
-            <textarea id="motivation" placeholder="Why join LSEMS?"></textarea>
-            <textarea id="candidate" placeholder="Why are you a good candidate?"></textarea>
-            <textarea id="bio" placeholder="Biography & Most Valuable Trait"></textarea>
-        </div>
-
-        <div class="form-section">
-            <h3>Section 4: OOC Information</h3>
-            <input type="text" id="discord" placeholder="Discord Username">
-            <input type="text" id="forumLink" placeholder="Forum Profile Link">
-            <input type="text" id="adminRecord" placeholder="Admin Record Image Link">
-        </div>
-
-        <button onclick="generateBBCode()">Generate & Open Forum</button>
+        <button class="submit-btn" onclick="generateBBCode()">GENERATE & OPEN FORUM</button>
     </div>
     <script src="script.js"></script>
 </body>
