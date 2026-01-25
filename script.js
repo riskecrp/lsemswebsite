@@ -1,23 +1,19 @@
-function countWords(id, displayId) {
-    const text = document.getElementById(id).value;
-    const count = text.trim() ? text.trim().split(/\s+/).length : 0;
-    document.getElementById(displayId).innerText = count;
-}
-
 function generateBB() {
-    const g = document.getElementById('p_gender').value;
-    const ai = document.getElementById('o_ai').value;
-    const mic = document.getElementById('o_mic').value;
-    const other = document.getElementById('o_other').value;
+    const g = document.getElementById('1_2_gender').value;
+    const s = document.getElementById('2_3_speak').value;
+    const w = document.getElementById('2_4_write').value;
+    const mic = document.getElementById('4_6_mic').value;
+    const o = document.getElementById('4_7_other').value;
+    const ai = document.getElementById('4_10_ai').value;
 
     const bb = `[img]https://i.imgur.com/a32OdzR.png[/img]
 [lsemssubtitle]SECTION 1 - PERSONAL INFORMATION[/lsemssubtitle]
 [divbox=white]
 [b]1.1) Name[/b]
 [list=none]
-Title: ${document.getElementById('p_title').value}
-First Name: ${document.getElementById('p_fname').value}
-Last Name: ${document.getElementById('p_lname').value}
+Title: ${document.getElementById('1_1_title').value}
+First Name: ${document.getElementById('1_1_fname').value}
+Last Name: ${document.getElementById('1_1_lname').value}
 [/list]
 
 [b]1.2) Gender - (use 'X' to select):[/b]
@@ -29,68 +25,68 @@ Last Name: ${document.getElementById('p_lname').value}
 
 [b]1.3) Date & Place of Birth [/b]
 [list=none]
-Place: ${document.getElementById('p_pob').value}
-Date: ${document.getElementById('p_dob').value}
+Place: ${document.getElementById('1_3_pob').value}
+Date: ${document.getElementById('1_3_dob').value}
 [/list]
 
 [b]1.4) Weight & Height[/b]
 [list=none]
-Weight: ${document.getElementById('p_weight').value}
-Height: ${document.getElementById('p_height').value}
+Weight: ${document.getElementById('1_4_w').value}
+Height: ${document.getElementById('1_4_h').value}
 [/list]
 
 [b]1.5) Contact details[/b]
 [list=none]
-Phone Number: ${document.getElementById('p_phone').value}
+Phone Number: ${document.getElementById('1_5_phone').value}
 [/list]
 
 [b]1.6) Convictions:[/b]
 [list=none]
-${document.getElementById('p_convict').value || 'N/A'}
+${document.getElementById('1_6_crim').value || 'No'}
 [/list]
 
 [b]1.6.1) Reformation Status:[/b]
 [list=none]
-${document.getElementById('p_ref').value || 'N/A'}
+${document.getElementById('1_6_1_ref').value || 'N/A'}
 [/list]
 
-[b]1.7) Identification:[/b]
+[b]1.7) Documents:[/b]
 [list=none]
-[URL=${document.getElementById('p_idlink').value}]Attached Documents[/URL]
+[URL=${document.getElementById('1_7_link').value}]Attached Documents[/URL]
 [/list]
 [/divbox]
 
 [lsemssubtitle]SECTION 2 - EXPERIENCES, PAST EMPLOYMENT, AND REFERENCES[/lsemssubtitle]
 [divbox=white]
-[b]2.1) Prior Employment/Education/Training:[/b]
+[b]2.1) Prior Exp:[/b]
 [list=none]
-${document.getElementById('e_quals').value}
+${document.getElementById('2_1_exp').value}
 [/list]
 
 [b]2.2) Employment History[/b]
 [list=none]
-Company Name: ${document.getElementById('e_co').value}
-Employment Term: ${document.getElementById('e_term').value}
-Title: ${document.getElementById('e_title').value}
-Job Duties: ${document.getElementById('e_duties').value}
-Reason for Leaving: ${document.getElementById('e_reason').value}
+Company Name: ${document.getElementById('2_2_co').value}
+Employment Term: ${document.getElementById('2_2_term').value}
+Title: ${document.getElementById('2_2_title').value}
+Job Duties: ${document.getElementById('2_2_duties').value}
+Reason for Leaving: ${document.getElementById('2_2_reason').value}
 [/list]
 
-[b]2.3) Speak English Proficiently?:[/b]
+[b]2.3) Speak English?:[/b]
 [list=none]
-[${document.getElementById('e_speak').value === 'Yes' ? 'X' : ' '}] Yes
-[${document.getElementById('e_speak').value === 'No' ? 'X' : ' '}] No
+[${s === 'Yes' ? 'X' : ' '}] Yes
+[${s === 'No' ? 'X' : ' '}] No
 [/list]
 
-[b]2.4) Write English Proficiently?:[/b]
+[b]2.4) Write English?:[/b]
 [list=none]
-[${document.getElementById('e_write').value === 'Yes' ? 'X' : ' '}] Yes
-[${document.getElementById('e_write').value === 'No' ? 'X' : ' '}] No
+[${w === 'Yes' ? 'X' : ' '}] Yes
+[${w === 'No' ? 'X' : ' '}] No
 [/list]
 
 [b]2.5) Other languages:[/b]
 [list=none]
-${document.getElementById('e_langs').value || 'None'}
+${document.getElementById('2_5_langs').value || 'N/A'}
 [/list]
 [/divbox]
 
@@ -98,19 +94,19 @@ ${document.getElementById('e_langs').value || 'None'}
 [divbox=white]
 [b]3.1 Motivation:[/b]
 [list=none]
-${document.getElementById('g_mot').value}
+${document.getElementById('3_1_mot').value}
 [/list]
-[b]3.2) Candidate Suitability:[/b]
+[b]3.2) Candidate:[/b]
 [list=none]
-${document.getElementById('g_cand').value}
+${document.getElementById('3_2_cand').value}
 [/list]
-[b]3.3) Improvement Contribution:[/b]
+[b]3.3) Improve LSEMS:[/b]
 [list=none]
-${document.getElementById('g_imp').value}
+${document.getElementById('3_3_imp').value}
 [/list]
-[b]3.4) Short Biography:[/b]
+[b]3.4) Bio:[/b]
 [list=none]
-${document.getElementById('g_bio').value}
+${document.getElementById('3_4_bio').value}
 [/list]
 [/divbox]
 
@@ -118,35 +114,36 @@ ${document.getElementById('g_bio').value}
 [divbox=white]
 [b]4.1) Player Information[/b]
 [list=none]
-Name/nickname: ${document.getElementById('o_nick').value}
-Gender: ${document.getElementById('o_gender').value}
-Country/Age: ${document.getElementById('o_country_age').value}
-Timezone: ${document.getElementById('o_tz').value}
-Discord Username: ${document.getElementById('o_disc').value}
+Name/nickname: ${document.getElementById('4_1_nick').value}
+Gender: ${document.getElementById('4_1_gender').value}
+Country: ${document.getElementById('4_1_country').value}
+Age: ${document.getElementById('4_1_age').value}
+Timezone: ${document.getElementById('4_1_tz').value}
+Discord Username: ${document.getElementById('4_1_disc').value}
 [/list]
 
 [b]4.2) ECRP Forum Profile[/b]
 [list=none]
-Forum Account Name: ${document.getElementById('o_fname').value}
-Forum Profile Link: [url=${document.getElementById('o_flink').value}]Here[/url]
+Forum Account Name: ${document.getElementById('4_2_fname').value}
+Forum Profile Link: [url=${document.getElementById('4_2_flink').value}]Here[/url]
 [/list]
 
 [b]4.3) Admin Record:[/b]
 [list=none]
-[URL=${document.getElementById('o_admin').value}] Admin Record[/URL]
+[URL=${document.getElementById('4_3_admin').value}] Admin Record[/URL]
 [/list]
 
-[b]4.4) Current Factions:[/b]
+[b]4.4) Factions:[/b]
 [list=none]
-${document.getElementById('o_factions').value || 'None'}
+${document.getElementById('4_4_factions').value}
 [/list]
 
-[b]4.5) Experience/Benefit:[/b]
+[b]4.5) Exp:[/b]
 [list=none]
-${document.getElementById('o_rp_exp').value}
+${document.getElementById('4_5_benefit').value}
 [/list]
 
-[b]4.6) Microphone & Teamspeak?:[/b]
+[b]4.6) Mic/TS?:[/b]
 [list=none]
 [${mic === 'Yes' ? 'X' : ' '}] Yes
 [${mic === 'No' ? 'X' : ' '}] No
@@ -154,31 +151,38 @@ ${document.getElementById('o_rp_exp').value}
 
 [b]4.7) Other servers?:[/b]
 [list=none]
-[${other === 'Yes' ? 'X' : ' '}] Yes
-[${other === 'No' ? 'X' : ' '}] No
+[${o === 'Yes' ? 'X' : ' '}] Yes
+[${o === 'No' ? 'X' : ' '}] No
 [/list]
+${document.getElementById('4_7_elab').value || ''}
 
 [b]4.8) Inspiration:[/b]
 [list=none]
-${document.getElementById('o_inspire').value || 'N/A'}
+${document.getElementById('4_8_insp').value}
 [/list]
 
-[b]4.9) Additional Info:[/b]
+[b]4.9) Additional:[/b]
 [list=none]
-${document.getElementById('o_else').value || 'N/A'}
+${document.getElementById('4_9_else').value}
 [/list]
 
 [b]4.10) AI Confirmation:[/b]
 [list=none]
 [*][${ai === 'Yes' ? 'X' : ' '}] Yes, I do.
-[*][${ai === 'Gen' ? 'X' : ' '}] I utilized AI-based text generators.
+[*][${ai === 'AI' ? 'X' : ' '}] I utilized AI-based text generators to assist me.
 [*][${ai === 'Gram' ? 'X' : ' '}] I utilized Grammar-assist software.
 [/list]
 [/divbox]
 [LSEMSfooter][/LSEMSfooter]`;
 
-    navigator.clipboard.writeText(bb).then(() => {
-        alert("Application copied! Redirecting to the forum...");
-        window.open("https://gov.eclipse-rp.net/posting.php?mode=post&f=575", "_blank");
-    });
+    // Attempt to copy to clipboard
+    const el = document.createElement('textarea');
+    el.value = bb;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+
+    alert("BBCode Copied! Now redirecting to the recruitment section.");
+    window.open("https://gov.eclipse-rp.net/viewforum.php?f=575", "_blank");
 }
