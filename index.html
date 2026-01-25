@@ -2,123 +2,136 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>LSEMS Hub | Public Portal</title>
+    <title>LSEMS Recruitment Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app-shell">
-        <aside class="sidebar">
-            <img src="LSEMS Default.png" class="sidebar-logo">
-            <nav>
-                <div class="nav-item active" onclick="showForm('recruitment')">Recruitment</div>
-                <div class="nav-item disabled">Reinstatement</div>
-                <div class="nav-item disabled">Ride Along</div>
-                <div class="nav-item disabled">Commendations</div>
-                <div class="nav-item disabled">Public Releases</div>
-            </nav>
-        </aside>
+    <div class="sidebar">
+        <img src="LSEMS Default.png" alt="Logo">
+        <div class="nav-item active">Recruitment</div>
+        <div class="nav-item">Reinstatement</div>
+        <div class="nav-item">Ride Along</div>
+        <div class="nav-item">Commendations</div>
+        <div class="nav-item">Public Releases</div>
+    </div>
 
-        <main class="main-content">
-            <header class="top-bar">
-                <h2>LSEMS Recruitment Application</h2>
-                <div class="status-badge">Form ID: 106953</div>
-            </header>
-
-            <div id="recruitment-form" class="form-container">
-                <div class="form-card">
-                    <div class="section-header">Section 1: Personal Information</div>
-                    <div class="input-grid">
-                        <div class="input-group"><label>Title</label><input type="text" id="p_title" placeholder="Mr./Ms./Mx."></div>
-                        <div class="input-group"><label>First Name</label><input type="text" id="p_fname"></div>
-                        <div class="input-group"><label>Last Name</label><input type="text" id="p_lname"></div>
-                    </div>
-                    <div class="input-grid">
-                        <div class="input-group">
-                            <label>Gender</label>
-                            <select id="p_gender"><option value="Male">Male</option><option value="Female">Female</option><option value="Other">Other</option></select>
-                        </div>
-                        <div class="input-group"><label>Weight</label><input type="text" id="p_weight"></div>
-                        <div class="input-group"><label>Height</label><input type="text" id="p_height"></div>
-                    </div>
-                    <div class="input-grid">
-                        <div class="input-group"><label>Place of Birth</label><input type="text" id="p_pob"></div>
-                        <div class="input-group"><label>Date of Birth</label><input type="text" id="p_dob"></div>
-                        <div class="input-group"><label>Phone Number</label><input type="text" id="p_phone"></div>
-                    </div>
-                    <label>1.6) Criminal Convictions? (If yes, explain)</label>
-                    <textarea id="p_convict"></textarea>
-                    <label>1.6.1) Reformation/Therapy Program Details</label>
-                    <textarea id="p_ref"></textarea>
-                    <label>1.7) ID & License (Link to Image)</label>
-                    <input type="text" id="p_idlink">
-                </div>
-
-                <div class="form-card">
-                    <div class="section-header">Section 2: Experiences & Employment</div>
-                    <label>2.1) Prior Qualifications/Education</label>
-                    <textarea id="e_quals"></textarea>
-                    <div class="input-grid">
-                        <div class="input-group"><label>Last Company</label><input type="text" id="e_co"></div>
-                        <div class="input-group"><label>Term (DD/MMM/YYYY to DD/MMM/YYYY)</label><input type="text" id="e_term"></div>
-                    </div>
-                    <div class="input-grid">
-                        <div class="input-group"><label>Job Title</label><input type="text" id="e_title"></div>
-                        <div class="input-group"><label>Reason for Leaving</label><input type="text" id="e_reason"></div>
-                    </div>
-                    <label>Job Duties</label>
-                    <textarea id="e_duties"></textarea>
-                    <div class="input-grid">
-                        <div class="input-group"><label>Speak English?</label><select id="e_speak"><option value="Yes">Yes</option><option value="No">No</option></select></div>
-                        <div class="input-group"><label>Write English?</label><select id="e_write"><option value="Yes">Yes</option><option value="No">No</option></select></div>
-                    </div>
-                    <label>2.5) Other Languages known</label>
-                    <input type="text" id="e_langs">
-                </div>
-
-                <div class="form-card">
-                    <div class="section-header">Section 3: General Questions (Min 75 Words Each)</div>
-                    <label>3.1) Motivation</label>
-                    <textarea id="g_mot" onkeyup="countWords('g_mot','w1')"></textarea>
-                    <div class="count-bar"><span id="w1">0</span> / 75</div>
-
-                    <label>3.2) Why are you a good candidate?</label>
-                    <textarea id="g_cand" onkeyup="countWords('g_cand','w2')"></textarea>
-                    <div class="count-bar"><span id="w2">0</span> / 75</div>
-                    
-                    <label>3.3) How would you improve LSEMS?</label>
-                    <textarea id="g_imp" onkeyup="countWords('g_imp','w3')"></textarea>
-                    <div class="count-bar"><span id="w3">0</span> / 75</div>
-
-                    <label>3.4) Short Bio & Valuable Trait</label>
-                    <textarea id="g_bio" onkeyup="countWords('g_bio','w4')"></textarea>
-                    <div class="count-bar"><span id="w4">0</span> / 75</div>
-                </div>
-
-                <div class="form-card">
-                    <div class="section-header">Section 4: OOC Information</div>
-                    <div class="input-grid">
-                        <div class="input-group"><label>OOC Name</label><input type="text" id="o_nick"></div>
-                        <div class="input-group"><label>OOC Gender</label><input type="text" id="o_gender"></div>
-                        <div class="input-group"><label>Age/Country</label><input type="text" id="o_country"></div>
-                    </div>
-                    <div class="input-grid">
-                        <div class="input-group"><label>Timezone</label><input type="text" id="o_tz"></div>
-                        <div class="input-group"><label>Discord Username</label><input type="text" id="o_disc"></div>
-                        <div class="input-group"><label>Forum Profile Link</label><input type="text" id="o_flink"></div>
-                    </div>
-                    <label>4.3) Admin Record Panel Link</label>
-                    <input type="text" id="o_admin">
-                    <label>4.5) Roleplay/Real-Life Experience for Faction</label>
-                    <textarea id="o_rp_exp"></textarea>
-                    <div class="input-grid">
-                        <div class="input-group"><label>Mic & Teamspeak?</label><select id="o_mic"><option value="Yes">Yes</option><option value="No">No</option></select></div>
-                        <div class="input-group"><label>Confirm AI Rules</label><select id="o_ai"><option value="Yes">Yes, I wrote this.</option><option value="Gram">Grammar assist only.</option><option value="No">I used AI generators.</option></select></div>
-                    </div>
-                </div>
-
-                <button class="generate-btn" onclick="generateBB()">GENERATE & COPY BBCODE</button>
+    <div class="main-content">
+        <div class="banner">
+            <img src="LSEMS Default.png" class="banner-logo">
+            <div class="banner-text">
+                <h2>LOS SANTOS EMERGENCY MEDICAL SERVICES</h2>
+                <h1>LSEMS APPLICATION</h1>
+                <p>RECRUITMENT AND EMPLOYMENT DIVISION</p>
             </div>
-        </main>
+        </div>
+
+        <div class="instruction-box">
+            Applicants must submit their application forms in the <strong>LSEMS Recruitment section</strong> using the title format provided below:<br><br>
+            <strong>TITLE:</strong> LSEMS Application - [First Name] [Last Name]
+        </div>
+
+        <div class="section-title">SECTION 1 - PERSONAL INFORMATION</div>
+        <div class="form-container">
+            <div class="row">
+                <div class="col">Title: <input type="text" id="1_1_title" placeholder="Mr./Ms./Mrs./Mx."></div>
+                <div class="col">First Name: <input type="text" id="1_1_fname"></div>
+                <div class="col">Last Name: <input type="text" id="1_1_lname"></div>
+            </div>
+            <div class="row">
+                <div class="col">Gender: 
+                    <select id="1_2_gender"><option value="Male">Male</option><option value="Female">Female</option><option value="Other">Other</option></select>
+                </div>
+                <div class="col">Place of Birth: <input type="text" id="1_3_pob"></div>
+                <div class="col">Date of Birth: <input type="text" id="1_3_dob"></div>
+            </div>
+            <div class="row">
+                <div class="col">Weight: <input type="text" id="1_4_w"></div>
+                <div class="col">Height: <input type="text" id="1_4_h"></div>
+                <div class="col">Phone Number: <input type="text" id="1_5_phone"></div>
+            </div>
+            <label>1.6) Convicted of a crime? If so, explain.</label>
+            <textarea id="1_6_crim"></textarea>
+            <label>1.6.1) Reformation Program / Therapy status?</label>
+            <textarea id="1_6_1_ref"></textarea>
+            <label>1.7) Identification & License Link</label>
+            <input type="text" id="1_7_link" placeholder="LinkHere">
+        </div>
+
+        <div class="section-title">SECTION 2 - EXPERIENCES & EMPLOYMENT</div>
+        <div class="form-container">
+            <label>2.1) Prior Employment/Education/Training qualifying you:</label>
+            <textarea id="2_1_exp"></textarea>
+            <div class="row">
+                <div class="col">Company Name: <input type="text" id="2_2_co"></div>
+                <div class="col">Employment Term: <input type="text" id="2_2_term" placeholder="DD/MMM/YYYY to DD/MMM/YYYY"></div>
+            </div>
+            <div class="row">
+                <div class="col">Job Title: <input type="text" id="2_2_title"></div>
+                <div class="col">Reason for Leaving: <input type="text" id="2_2_reason"></div>
+            </div>
+            <label>Job Duties:</label>
+            <textarea id="2_2_duties"></textarea>
+            <div class="row">
+                <div class="col">Speak English? <select id="2_3_speak"><option value="Yes">Yes</option><option value="No">No</option></select></div>
+                <div class="col">Write English? <select id="2_4_write"><option value="Yes">Yes</option><option value="No">No</option></select></div>
+            </div>
+            <label>2.5) Other languages and proficiency:</label>
+            <textarea id="2_5_langs"></textarea>
+        </div>
+
+        <div class="section-title">SECTION 3 - GENERAL QUESTIONS (75 Word Min)</div>
+        <div class="form-container">
+            <label>3.1) Motivation to join LSEMS:</label>
+            <textarea id="3_1_mot"></textarea>
+            <label>3.2) What makes you a good candidate?</label>
+            <textarea id="3_2_cand"></textarea>
+            <label>3.3) How would you improve LSEMS?</label>
+            <textarea id="3_3_imp"></textarea>
+            <label>3.4) Short biography & valuable trait:</label>
+            <textarea id="3_4_bio"></textarea>
+        </div>
+
+        <div class="section-title">SECTION 4 - OOC INFORMATION</div>
+        <div class="form-container">
+            <div class="row">
+                <div class="col">Nickname: <input type="text" id="4_1_nick"></div>
+                <div class="col">Gender: <input type="text" id="4_1_gender"></div>
+                <div class="col">Country: <input type="text" id="4_1_country"></div>
+            </div>
+            <div class="row">
+                <div class="col">Age: <input type="text" id="4_1_age"></div>
+                <div class="col">Timezone: <input type="text" id="4_1_tz"></div>
+                <div class="col">Discord: <input type="text" id="4_1_disc"></div>
+            </div>
+            <div class="row">
+                <div class="col">Forum Name: <input type="text" id="4_2_fname"></div>
+                <div class="col">Forum Link: <input type="text" id="4_2_flink" placeholder="LinkHere"></div>
+            </div>
+            <label>4.3) Admin Record Link:</label>
+            <input type="text" id="4_3_admin" placeholder="LinkHere">
+            <label>4.4) Current Faction(s):</label>
+            <input type="text" id="4_4_factions">
+            <label>4.5) Benefit Experience (RP/RL):</label>
+            <textarea id="4_5_benefit"></textarea>
+            <div class="row">
+                <div class="col">Mic/TS? <select id="4_6_mic"><option value="Yes">Yes</option><option value="No">No</option></select></div>
+                <div class="col">Other Servers? <select id="4_7_other"><option value="No">No</option><option value="Yes">Yes</option></select></div>
+            </div>
+            <label>If yes, elaborate:</label>
+            <input type="text" id="4_7_elab">
+            <div class="row">
+                <div class="col">Inspiration: <input type="text" id="4_8_insp"></div>
+                <div class="col">Add. Info: <input type="text" id="4_9_else"></div>
+            </div>
+            <label>4.10) AI Confirmation:</label>
+            <select id="4_10_ai">
+                <option value="Yes">Yes, I wrote this myself.</option>
+                <option value="AI">I utilized AI generators.</option>
+                <option value="Gram">Grammar-assist only.</option>
+            </select>
+        </div>
+
+        <button class="submit-btn" onclick="generateBB()">GENERATE & OPEN FORUM</button>
     </div>
     <script src="script.js"></script>
 </body>
