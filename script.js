@@ -1,5 +1,4 @@
 function generateBB() {
-    // 1. Gather Variables
     const title = document.getElementById('p_title').value;
     const fname = document.getElementById('p_fname').value;
     const lname = document.getElementById('p_lname').value;
@@ -10,7 +9,6 @@ function generateBB() {
     const other = document.getElementById('o_other').value;
     const ai = document.getElementById('o_ai').value;
 
-    // 2. Build BBCode
     const bbCode = `[img]https://i.imgur.com/a32OdzR.png[/img]
 [lsemssubtitle]SECTION 1 - PERSONAL INFORMATION[/lsemssubtitle]
 [divbox=white]
@@ -21,7 +19,7 @@ First Name: ${fname}
 Last Name: ${lname}
 [/list]
 
-[b]1.2) Gender - (use 'X' to select):[/b]
+[b]1.2) Gender:[/b]
 [list=none]
 [${gender === 'Female' ? 'X' : ' '}] Female
 [${gender === 'Male' ? 'X' : ' '}] Male
@@ -55,9 +53,9 @@ ${document.getElementById('p_crim').value || 'No'}
 ${document.getElementById('p_ref').value || 'N/A'}
 [/list]
 
-[b]1.7) Identification:[/b]
+[b]1.7) Documents:[/b]
 [list=none]
-[URL=${document.getElementById('p_id_link').value}]Attached Documents[/URL]
+[URL=${document.getElementById('p_id').value}]Attached Documents[/URL]
 [/list]
 [/divbox]
 
@@ -73,8 +71,8 @@ ${document.getElementById('e_quals').value}
 Company Name: ${document.getElementById('e_co').value}
 Employment Term: ${document.getElementById('e_term').value}
 Title: ${document.getElementById('e_title').value}
-Job Duties: ${document.getElementById('e_duties').value}
 Reason for Leaving: ${document.getElementById('e_reason').value}
+Duties: ${document.getElementById('e_duties').value}
 [/list]
 
 [b]2.3) Speak English?:[/b]
@@ -105,7 +103,7 @@ ${document.getElementById('g_mot').value}
 [list=none]
 ${document.getElementById('g_cand').value}
 [/list]
-[b]3.3) Improvement:[/b]
+[b]3.3) Improvements:[/b]
 [list=none]
 ${document.getElementById('g_imp').value}
 [/list]
@@ -120,22 +118,21 @@ ${document.getElementById('g_bio').value}
 [b]4.1) Player Information[/b]
 [list=none]
 Name/nickname: ${document.getElementById('o_nick').value}
-Gender: ${document.getElementById('o_gender').value}
-Country: ${document.getElementById('o_country').value}
 Age: ${document.getElementById('o_age').value}
+Country: ${document.getElementById('o_country').value}
 Timezone: ${document.getElementById('o_tz').value}
-Discord Username: ${document.getElementById('o_disc').value}
+Discord: ${document.getElementById('o_disc').value}
 [/list]
 
-[b]4.2) ECRP Forum Profile[/b]
+[b]4.2) Forum Profile[/b]
 [list=none]
-Forum Account Name: ${document.getElementById('o_fname').value}
-Forum Profile Link: [url=${document.getElementById('o_flink').value}]Here[/url]
+Name: ${document.getElementById('o_fname').value}
+Link: [url=${document.getElementById('o_flink').value}]Here[/url]
 [/list]
 
 [b]4.3) Admin Record:[/b]
 [list=none]
-[URL=${document.getElementById('o_admin').value}] Admin Record[/URL]
+[URL=${document.getElementById('o_admin').value}]Record[/URL]
 [/list]
 
 [b]4.4) Factions:[/b]
@@ -148,7 +145,7 @@ ${document.getElementById('o_factions').value}
 ${document.getElementById('o_exp').value}
 [/list]
 
-[b]4.6) Mic/TS?:[/b]
+[b]4.6) Mic?:[/b]
 [list=none]
 [${mic === 'Yes' ? 'X' : ' '}] Yes
 [${mic === 'No' ? 'X' : ' '}] No
@@ -174,34 +171,25 @@ ${document.getElementById('o_else').value}
 [b]4.10) AI Confirmation:[/b]
 [list=none]
 [*][${ai === 'Yes' ? 'X' : ' '}] Yes, I do.
-[*][${ai === 'AI' ? 'X' : ' '}] I utilized AI-based text generators.
-[*][${ai === 'Gram' ? 'X' : ' '}] I utilized Grammar-assist software.
+[*][${ai === 'AI' ? 'X' : ' '}] I utilized AI.
 [/list]
 [/divbox]
 [LSEMSfooter][/LSEMSfooter]`;
 
-    // 3. Fallback Copy Method (Fixes "Not Functional" issue)
+    // Copy Logic
     const textArea = document.createElement("textarea");
     textArea.value = bbCode;
     textArea.style.position = "fixed"; 
     textArea.style.opacity = "0";
     document.body.appendChild(textArea);
-    textArea.focus();
     textArea.select();
-
     try {
-        const successful = document.execCommand('copy');
-        if(successful) {
-            alert("Application Copied Successfully!\n\nPlease paste this into the new topic.");
-        } else {
-            alert("Auto-copy failed. Please manually copy the text from the console or try again.");
-        }
+        document.execCommand('copy');
+        alert("BBCode Copied! Title: LSEMS Application - " + fname + " " + lname);
     } catch (err) {
-        alert("Copy Error: " + err);
+        alert("Copy failed. Please copy manually.");
     }
-    
     document.body.removeChild(textArea);
     
-    // 4. Redirect
     window.open("https://gov.eclipse-rp.net/viewforum.php?f=575", "_blank");
 }
