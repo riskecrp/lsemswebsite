@@ -7,15 +7,14 @@ function openTab(tabName) {
 
     document.getElementById(tabName).classList.add('active');
     
-    // Simple visual toggle for the active class on sidebar
-    // Note: In this simple version, clicking recruitment is the main trigger
+    // Highlight sidebar item logic
     if(tabName === 'recruitment') {
         buttons[0].classList.add('active');
     }
 }
 
 function generateRecruitmentBB() {
-    // 1. Gather Data
+    // 1. GATHER DATA
     const title = document.getElementById('p_title').value;
     const fname = document.getElementById('p_fname').value;
     const lname = document.getElementById('p_lname').value;
@@ -26,10 +25,11 @@ function generateRecruitmentBB() {
     const other = document.getElementById('o_other').value;
     const ai = document.getElementById('o_ai').value;
 
-    // 2. Build BBCode String
+    // 2. BUILD EXACT BBCODE TEMPLATE
     const bbCode = `[img]https://i.imgur.com/a32OdzR.png[/img]
 [lsemssubtitle]SECTION 1 - PERSONAL INFORMATION[/lsemssubtitle]
 [divbox=white]
+
 [b]1.1) Name[/b]
 [list=none]
 Title: ${title}
@@ -44,13 +44,13 @@ Last Name: ${lname}
 [${gender === 'Other' ? 'X' : ' '}] Other
 [/list]
 
-[b]1.3) Date & Place of Birth[/b]
+[b]1.3) Date & Place of Birth [/b]
 [list=none]
 Place: ${document.getElementById('p_pob').value}
 Date: ${document.getElementById('p_dob').value}
 [/list]
 
-[b]1.4) Weight & Height[/b]
+[b]1.4) Weight & Height (Metric or Imperial)[/b]
 [list=none]
 Weight: ${document.getElementById('p_weight').value}
 Height: ${document.getElementById('p_height').value}
@@ -61,27 +61,28 @@ Height: ${document.getElementById('p_height').value}
 Phone Number: ${document.getElementById('p_phone').value}
 [/list]
 
-[b]1.6) Convictions:[/b]
+[b]1.6) Have you ever been convicted of a crime? If so, explain.[/b]
 [list=none]
-${document.getElementById('p_crim').value || 'No'}
+${document.getElementById('p_crim').value || 'ANSWER'}
 [/list]
 
-[b]1.6.1) Reformation Status:[/b]
+[b]1.6.1) If yes, have you gone through the Felon Reformation Program, Detention and Parole Bureau, or therapy with the LSEMS?[/b]
 [list=none]
-${document.getElementById('p_ref').value || 'N/A'}
+${document.getElementById('p_ref').value || 'ANSWER'}
 [/list]
 
-[b]1.7) Identification:[/b]
+[b]1.7) Please provide proof of your identification and license (Driver's license required).[/b]
 [list=none]
 [URL=${document.getElementById('p_id').value}]Attached Documents[/URL]
 [/list]
-[/divbox]
 
+[/divbox]
 [lsemssubtitle]SECTION 2 - EXPERIENCES, PAST EMPLOYMENT, AND REFERENCES[/lsemssubtitle]
 [divbox=white]
-[b]2.1) Prior Qualifications:[/b]
+
+[b]2.1) Please list and explain all prior Employment/Education/Training that you may have that qualifies you for a position.[/b]
 [list=none]
-${document.getElementById('e_quals').value}
+${document.getElementById('e_quals').value || 'ANSWER'}
 [/list]
 
 [b]2.2) Employment History[/b]
@@ -89,108 +90,118 @@ ${document.getElementById('e_quals').value}
 Company Name: ${document.getElementById('e_co').value}
 Employment Term: ${document.getElementById('e_term').value}
 Title: ${document.getElementById('e_title').value}
-Reason for Leaving: ${document.getElementById('e_reason').value}
 Job Duties: ${document.getElementById('e_duties').value}
+Reason for Leaving: ${document.getElementById('e_reason').value}
 [/list]
 
-[b]2.3) Speak English?:[/b]
+[b]2.3) Can you speak to others in English proficiently? (use 'X' to select):[/b]
 [list=none]
 [${speak === 'Yes' ? 'X' : ' '}] Yes
 [${speak === 'No' ? 'X' : ' '}] No
 [/list]
 
-[b]2.4) Write English?:[/b]
+[b]2.4) Can you write to others in English proficiently? (use 'X' to select):[/b]
 [list=none]
 [${write === 'Yes' ? 'X' : ' '}] Yes
 [${write === 'No' ? 'X' : ' '}] No
 [/list]
 
-[b]2.5) Other Languages:[/b]
+[b]2.5) Please state any language(s) you know other than English and identify if you can read, write or speak the language(s).[/b]
 [list=none]
-${document.getElementById('e_langs').value || 'None'}
+${document.getElementById('e_langs').value || 'ANSWER'}
 [/list]
 [/divbox]
 
 [lsemssubtitle]SECTION 3 - GENERAL QUESTIONS[/lsemssubtitle]
 [divbox=white]
-[b]3.1 Motivation:[/b]
+[b]3.1 What is your motivation behind wanting to join the Los Santos Emergency Medical Services?[/b] [color=Firebrick](minimum 75 words)[/color]
 [list=none]
-${document.getElementById('g_mot').value}
+${document.getElementById('g_mot').value || 'ANSWER'} 
 [/list]
-[b]3.2) Candidate:[/b]
-[list=none]
-${document.getElementById('g_cand').value}
-[/list]
-[b]3.3) Improvement:[/b]
-[list=none]
-${document.getElementById('g_imp').value}
-[/list]
-[b]3.4) Bio:[/b]
-[list=none]
-${document.getElementById('g_bio').value}
-[/list]
-[/divbox]
 
+[b]3.2) What makes you a good candidate to join the Los Santos Emergency Medical Services?[/b] [color=Firebrick](minimum 75 words)[/color]
+[list=none]
+${document.getElementById('g_cand').value || 'ANSWER'}
+[/list]
+
+[b]3.3) If hired, how would you help improve the Los Santos Emergency Medical Services?[/b] [color=Firebrick](minimum 75 words)[/color]
+[list=none]
+${document.getElementById('g_imp').value || 'ANSWER'}
+[/list]
+
+[b]3.4) Please provide a short biography about yourself and your most valuable trait is that could benefit the department [/b][color=Firebrick](minimum 75 words)[/color]
+[list=none]
+${document.getElementById('g_bio').value || 'ANSWER'}
+[/list]
+
+[/divbox]
 [lsemssubtitle](( SECTION 4 - OOC INFORMATION ))[/lsemssubtitle]
 [divbox=white]
 [b]4.1) Player Information[/b]
 [list=none]
 Name/nickname: ${document.getElementById('o_nick').value}
-Age: ${document.getElementById('o_age').value}
+Gender: ${document.getElementById('o_gender').value}
 Country: ${document.getElementById('o_country').value}
+Age: ${document.getElementById('o_age').value}
 Timezone: ${document.getElementById('o_tz').value}
-Discord: ${document.getElementById('o_disc').value}
+Discord Username: ${document.getElementById('o_disc').value}
 [/list]
 
-[b]4.2) Forum Profile[/b]
+[b]4.2) ECRP Forum Profile[/b]
 [list=none]
-Name: ${document.getElementById('o_fname').value}
-Link: [url=${document.getElementById('o_flink').value}]Here[/url]
+Forum Account Name: ${document.getElementById('o_fname').value}
+Forum Profile Link: [url=${document.getElementById('o_flink').value}]Here[/url]
 [/list]
 
-[b]4.3) Admin Record:[/b]
+[b]4.3) Please provide an unedited screenshot of your admin record, including the character list and the admin log below. The image should be uncensored with the exception of vehicles. (Please use the new panel as shown in the example. The new panel can be found [url=https://eclipse-rp.net/panel/#/]here[/url]. [url=https://imgur.com/a/bajTunV]EXAMPLE[/url])[/b]
 [list=none]
-[URL=${document.getElementById('o_admin').value}]Record[/URL]
+[URL=${document.getElementById('o_admin').value}] Admin Record[/URL]
 [/list]
 
-[b]4.4) Factions:[/b]
+[b]4.4) List any faction(s) you are currently a part of:[/b] 
 [list=none]
-${document.getElementById('o_factions').value}
+${document.getElementById('o_factions').value || 'ANSWER'}
 [/list]
 
-[b]4.5) Exp:[/b]
+[b]4.5) Please provide any roleplay or real-life experience that you have acquired that may benefit the LSEMS as a faction, and/or your experience within the faction.[/b]
 [list=none]
-${document.getElementById('o_exp').value}
+${document.getElementById('o_exp').value || 'ANSWER'}
 [/list]
 
-[b]4.6) Mic?:[/b]
+[b]4.6) Do you have a working microphone and are you able to use TeamSpeak?* - (use 'X' to select):[/b]
 [list=none]
 [${mic === 'Yes' ? 'X' : ' '}] Yes
 [${mic === 'No' ? 'X' : ' '}] No
+
+[i][size=85]*this is not eliminatory; text-only is welcome within the faction, but may be more challenging.[/size][/i]
 [/list]
 
-[b]4.7) Other Servers?:[/b]
+[b]4.7) Do you currently play on any other GTA-RP servers and are you in any faction positions there? - (use 'X' to select):[/b]
 [list=none]
 [${other === 'Yes' ? 'X' : ' '}] Yes
 [${other === 'No' ? 'X' : ' '}] No
-[/list]
-${document.getElementById('o_elab').value}
-
-[b]4.8) Inspiration:[/b]
-[list=none]
-${document.getElementById('o_insp').value}
+If yes, please elaborate: ${document.getElementById('o_elab').value}
 [/list]
 
-[b]4.9) Additional:[/b]
+[b]4.8) What or who inspired you to make this Application? (Optional)[/b]
 [list=none]
-${document.getElementById('o_else').value}
+${document.getElementById('o_insp').value || 'ANSWER'}
 [/list]
 
-[b]4.10) AI Confirmation:[/b]
+[b]4.9) Would you like to add anything else that was not directly inquired about within the application? (Optional)[/b]
 [list=none]
-[*][${ai === 'Yes' ? 'X' : ' '}] Yes, I do.
-[*][${ai === 'AI' ? 'X' : ' '}] I utilized AI.
+${document.getElementById('o_else').value || 'ANSWER'}
 [/list]
+
+[b]4.10) Do you confirm you have written all of your answers in the above application on your own and without the use of AI-based text generators?*[/b]
+[list=none]
+[*][${ai === 'Yes' ? '  ' : '  '}] Yes, I do.
+[*][${ai === 'AI' ? '  ' : '  '}] I utilized AI-based text generators to assist me.
+[*][${ai === 'Gram' ? '  ' : '  '}] I utilized Grammar-assist software*, but have otherwise written the application myself (Light use is irrelevant).
+
+*Grammar-assist software, such as Grammarly, may be flagged as AI when used to edit larger portions of text. 
+[/list]
+
 [/divbox]
 [LSEMSfooter][/LSEMSfooter]`;
 
@@ -203,14 +214,18 @@ ${document.getElementById('o_else').value}
     textArea.select();
     
     try {
-        document.execCommand('copy');
-        alert("Success! BBCode copied.\n\nOpening Forum...");
+        const successful = document.execCommand('copy');
+        if(successful) {
+            alert("SUCCESS!\n\nBBCode copied to clipboard.\n\nOpening forum in 2 seconds...");
+            setTimeout(() => {
+                window.open("https://gov.eclipse-rp.net/viewforum.php?f=575", "_blank");
+            }, 100);
+        } else {
+            alert("Copy failed. Please manually copy the code.");
+        }
     } catch (err) {
-        alert("Copy failed. Please manually copy code.");
+        alert("Browser blocked copy. Please manually copy.");
     }
     
     document.body.removeChild(textArea);
-
-    // 4. OPEN FORUM IMMEDIATELY
-    window.open("https://gov.eclipse-rp.net/viewforum.php?f=575", "_blank");
 }
