@@ -82,7 +82,7 @@ body {
 .status { font-size: 14px; font-weight: bold; color: #555; }
 .online { color: #2ecc71; }
 
-/* TAB & FORM STYLES */
+/* TABS & FORM STYLES */
 .tab-content { display: none; padding: 40px; max-width: 1000px; margin: 0 auto; }
 .tab-content.active { display: block; }
 
