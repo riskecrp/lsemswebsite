@@ -48,14 +48,14 @@
         <div id="recruitment" class="tab-content active">
             <div class="form-header">
                 <h1>Employment Application</h1>
-                <p>Complete all fields. The system will format your BBCode automatically.</p>
+                <p>Complete all fields. The system will format your BBCode exactly as required.</p>
                 <div class="alert-box">
                     <strong>TOPIC TITLE FORMAT:</strong> LSEMS Application - [First Name] [Last Name]
                 </div>
             </div>
 
             <div class="form-card">
-                <div class="section-label">SECTION 1: PERSONAL INFORMATION</div>
+                <div class="section-label">SECTION 1 - PERSONAL INFORMATION</div>
                 
                 <div class="grid-3">
                     <div class="input-group">
@@ -64,21 +64,21 @@
                     </div>
                     <div class="input-group">
                         <label>First Name</label>
-                        <input type="text" id="p_fname" placeholder="John">
+                        <input type="text" id="p_fname">
                     </div>
                     <div class="input-group">
                         <label>Last Name</label>
-                        <input type="text" id="p_lname" placeholder="Doe">
+                        <input type="text" id="p_lname">
                     </div>
                 </div>
 
                 <div class="grid-3">
                     <div class="input-group">
-                        <label>Gender</label>
+                        <label>1.2) Gender</label>
                         <select id="p_gender"><option value="Male">Male</option><option value="Female">Female</option><option value="Other">Other</option></select>
                     </div>
                     <div class="input-group">
-                        <label>Date of Birth</label>
+                        <label>1.3) Date of Birth</label>
                         <input type="text" id="p_dob" placeholder="DD/MMM/YYYY">
                     </div>
                     <div class="input-group">
@@ -88,119 +88,125 @@
                 </div>
 
                 <div class="grid-3">
-                    <div class="input-group"><label>Weight</label><input type="text" id="p_weight"></div>
+                    <div class="input-group"><label>1.4) Weight</label><input type="text" id="p_weight"></div>
                     <div class="input-group"><label>Height</label><input type="text" id="p_height"></div>
-                    <div class="input-group"><label>Phone Number</label><input type="text" id="p_phone"></div>
+                    <div class="input-group"><label>1.5) Phone Number</label><input type="text" id="p_phone"></div>
                 </div>
 
                 <div class="input-group">
-                    <label>1.6) Criminal Convictions? (If yes, explain)</label>
+                    <label>1.6) Have you ever been convicted of a crime? If so, explain.</label>
                     <textarea id="p_crim" rows="3"></textarea>
                 </div>
                 
                 <div class="input-group">
-                    <label>1.6.1) Reformation Program / Therapy Status</label>
+                    <label>1.6.1) If yes, reformation program details?</label>
                     <textarea id="p_ref" rows="3"></textarea>
                 </div>
 
                 <div class="input-group">
-                    <label>1.7) ID & License Link (Imgur URL)</label>
+                    <label>1.7) ID & License Link (Direct URL)</label>
                     <input type="text" id="p_id">
                 </div>
             </div>
 
             <div class="form-card">
-                <div class="section-label">SECTION 2: EMPLOYMENT HISTORY</div>
+                <div class="section-label">SECTION 2 - EXPERIENCES, PAST EMPLOYMENT, AND REFERENCES</div>
                 <div class="input-group">
-                    <label>2.1) Prior Qualifications & Training</label>
+                    <label>2.1) Prior Employment/Education/Training qualifying you:</label>
                     <textarea id="e_quals" rows="4"></textarea>
                 </div>
 
+                <label>2.2) Employment History</label>
                 <div class="grid-2">
-                    <div class="input-group"><label>Previous Company</label><input type="text" id="e_co"></div>
+                    <div class="input-group"><label>Company Name</label><input type="text" id="e_co"></div>
                     <div class="input-group"><label>Employment Term</label><input type="text" id="e_term"></div>
                 </div>
                 <div class="grid-2">
-                    <div class="input-group"><label>Job Title</label><input type="text" id="e_title"></div>
+                    <div class="input-group"><label>Title</label><input type="text" id="e_title"></div>
                     <div class="input-group"><label>Reason for Leaving</label><input type="text" id="e_reason"></div>
                 </div>
-
                 <div class="input-group"><label>Job Duties</label><textarea id="e_duties" rows="3"></textarea></div>
 
                 <div class="grid-2">
                     <div class="input-group">
-                        <label>Speak English?</label>
+                        <label>2.3) Speak English proficiently?</label>
                         <select id="e_speak"><option>Yes</option><option>No</option></select>
                     </div>
                     <div class="input-group">
-                        <label>Write English?</label>
+                        <label>2.4) Write English proficiently?</label>
                         <select id="e_write"><option>Yes</option><option>No</option></select>
                     </div>
                 </div>
-                <div class="input-group"><label>2.5) Other Languages</label><input type="text" id="e_langs"></div>
+                <div class="input-group"><label>2.5) Other Languages & Proficiency</label><input type="text" id="e_langs"></div>
             </div>
 
             <div class="form-card">
-                <div class="section-label">SECTION 3: GENERAL QUESTIONS</div>
+                <div class="section-label">SECTION 3 - GENERAL QUESTIONS</div>
                 <div class="input-group">
                     <label>3.1) Motivation to Join (Min 75 words)</label>
-                    <textarea id="g_mot" rows="5"></textarea>
+                    <textarea id="g_mot" rows="6"></textarea>
                 </div>
                 <div class="input-group">
                     <label>3.2) Why are you a good candidate? (Min 75 words)</label>
-                    <textarea id="g_cand" rows="5"></textarea>
+                    <textarea id="g_cand" rows="6"></textarea>
                 </div>
                 <div class="input-group">
                     <label>3.3) How would you improve LSEMS? (Min 75 words)</label>
-                    <textarea id="g_imp" rows="5"></textarea>
+                    <textarea id="g_imp" rows="6"></textarea>
                 </div>
                 <div class="input-group">
-                    <label>3.4) Biography & Traits (Min 75 words)</label>
-                    <textarea id="g_bio" rows="5"></textarea>
+                    <label>3.4) Short Biography & Traits (Min 75 words)</label>
+                    <textarea id="g_bio" rows="6"></textarea>
                 </div>
             </div>
 
             <div class="form-card">
-                <div class="section-label">SECTION 4: OOC INFORMATION</div>
+                <div class="section-label">(( SECTION 4 - OOC INFORMATION ))</div>
                 <div class="grid-3">
-                    <div class="input-group"><label>OOC Name/Nick</label><input type="text" id="o_nick"></div>
-                    <div class="input-group"><label>Age</label><input type="text" id="o_age"></div>
+                    <div class="input-group"><label>4.1) Name/nickname</label><input type="text" id="o_nick"></div>
+                    <div class="input-group"><label>Gender</label><input type="text" id="o_gender"></div>
                     <div class="input-group"><label>Country</label><input type="text" id="o_country"></div>
                 </div>
                 <div class="grid-3">
+                    <div class="input-group"><label>Age</label><input type="text" id="o_age"></div>
                     <div class="input-group"><label>Timezone</label><input type="text" id="o_tz"></div>
-                    <div class="input-group"><label>Discord ID</label><input type="text" id="o_disc"></div>
-                    <div class="input-group"><label>Forum Name</label><input type="text" id="o_fname"></div>
+                    <div class="input-group"><label>Discord Username</label><input type="text" id="o_disc"></div>
                 </div>
                 
-                <div class="input-group"><label>Forum Profile Link</label><input type="text" id="o_flink"></div>
-                <div class="input-group"><label>Admin Record Link (Screenshot)</label><input type="text" id="o_admin"></div>
-                <div class="input-group"><label>Current Factions</label><input type="text" id="o_factions"></div>
+                <div class="grid-2">
+                    <div class="input-group"><label>4.2) Forum Account Name</label><input type="text" id="o_fname"></div>
+                    <div class="input-group"><label>Forum Profile Link (URL)</label><input type="text" id="o_flink"></div>
+                </div>
+
+                <div class="input-group"><label>4.3) Admin Record Link (Screenshot URL)</label><input type="text" id="o_admin"></div>
+                <div class="input-group"><label>4.4) Current Factions</label><input type="text" id="o_factions"></div>
                 
                 <div class="input-group">
-                    <label>Roleplay Experience / Benefit to Faction</label>
+                    <label>4.5) Roleplay/Real-Life Experience</label>
                     <textarea id="o_exp" rows="3"></textarea>
                 </div>
 
                 <div class="grid-2">
                     <div class="input-group">
-                        <label>Working Mic?</label>
+                        <label>4.6) Mic/TeamSpeak?</label>
                         <select id="o_mic"><option>Yes</option><option>No</option></select>
                     </div>
                     <div class="input-group">
-                        <label>Other GTA RP Servers?</label>
+                        <label>4.7) Other GTA-RP Servers?</label>
                         <select id="o_other"><option>No</option><option>Yes</option></select>
                     </div>
                 </div>
                 <div class="input-group"><label>If yes, please elaborate:</label><input type="text" id="o_elab"></div>
-                <div class="input-group"><label>Inspiration</label><input type="text" id="o_insp"></div>
-                <div class="input-group"><label>Additional Info</label><textarea id="o_else" rows="2"></textarea></div>
+
+                <div class="input-group"><label>4.8) Inspiration (Optional)</label><input type="text" id="o_insp"></div>
+                <div class="input-group"><label>4.9) Additional Info (Optional)</label><textarea id="o_else" rows="2"></textarea></div>
 
                 <div class="input-group">
-                    <label style="color: #7d1a1a;">AI & Plagiarism Confirmation</label>
+                    <label style="color: #7d1a1a;">4.10) AI Confirmation</label>
                     <select id="o_ai">
-                        <option value="Yes">Yes, I wrote this 100% myself.</option>
-                        <option value="AI">I utilized AI generation tools.</option>
+                        <option value="Yes">Yes, I do.</option>
+                        <option value="AI">I utilized AI-based text generators to assist me.</option>
+                        <option value="Gram">I utilized Grammar-assist software.</option>
                     </select>
                 </div>
             </div>
