@@ -1,31 +1,24 @@
-// 1. DASHBOARD NAVIGATION LOGIC
 function openTab(tabName) {
-    // Hide all tab contents
     const contents = document.querySelectorAll('.tab-content');
     contents.forEach(content => content.classList.remove('active'));
 
-    // Remove active class from all menu items
     const buttons = document.querySelectorAll('.menu-item');
     buttons.forEach(btn => btn.classList.remove('active'));
 
-    // Show the selected tab
     document.getElementById(tabName).classList.add('active');
     
-    // Highlight the clicked button (Simple logic based on click event not passed here, 
-    // but we can find the button that calls this function)
-    const activeBtn = Array.from(buttons).find(btn => btn.getAttribute('onclick').includes(tabName));
-    if(activeBtn) activeBtn.classList.add('active');
+    // Simple visual toggle for the active class on sidebar
+    // Note: In this simple version, clicking recruitment is the main trigger
+    if(tabName === 'recruitment') {
+        buttons[0].classList.add('active');
+    }
 }
 
-
-// 2. RECRUITMENT GENERATOR LOGIC
 function generateRecruitmentBB() {
-    // Collect specific fields for the Title
+    // 1. Gather Data
     const title = document.getElementById('p_title').value;
     const fname = document.getElementById('p_fname').value;
     const lname = document.getElementById('p_lname').value;
-    
-    // Collect Checkbox/Select Logic
     const gender = document.getElementById('p_gender').value;
     const speak = document.getElementById('e_speak').value;
     const write = document.getElementById('e_write').value;
@@ -33,6 +26,7 @@ function generateRecruitmentBB() {
     const other = document.getElementById('o_other').value;
     const ai = document.getElementById('o_ai').value;
 
+    // 2. Build BBCode String
     const bbCode = `[img]https://i.imgur.com/a32OdzR.png[/img]
 [lsemssubtitle]SECTION 1 - PERSONAL INFORMATION[/lsemssubtitle]
 [divbox=white]
@@ -200,7 +194,7 @@ ${document.getElementById('o_else').value}
 [/divbox]
 [LSEMSfooter][/LSEMSfooter]`;
 
-    // COPY TO CLIPBOARD (Robust Fallback Method)
+    // 3. FORCE COPY LOGIC (Hidden Textarea Method)
     const textArea = document.createElement("textarea");
     textArea.value = bbCode;
     textArea.style.position = "fixed"; 
@@ -209,16 +203,14 @@ ${document.getElementById('o_else').value}
     textArea.select();
     
     try {
-        const successful = document.execCommand('copy');
-        if(successful) {
-            alert("SUCCESS!\n\nBBCode copied to clipboard.\n\nDon't forget your Subject Title:\nLSEMS Application - " + fname + " " + lname);
-        } else {
-            alert("Copy failed. Please manually copy the code.");
-        }
+        document.execCommand('copy');
+        alert("Success! BBCode copied.\n\nOpening Forum...");
     } catch (err) {
-        alert("Browser blocked copy. Please manually copy.");
+        alert("Copy failed. Please manually copy code.");
     }
     
     document.body.removeChild(textArea);
+
+    // 4. OPEN FORUM IMMEDIATELY
     window.open("https://gov.eclipse-rp.net/viewforum.php?f=575", "_blank");
 }
