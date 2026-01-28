@@ -11,7 +11,7 @@
 
     <nav class="sidebar">
         <div class="brand">
-            <img src="https://i.imgur.com/a32OdzR.png" alt="LSEMS Logo">
+            <img src="LSEMS Default.png" alt="LSEMS Logo">
             <h3>LSEMS PORTAL</h3>
         </div>
         
@@ -19,22 +19,22 @@
             <button class="menu-item active" onclick="openTab('recruitment')">
                 <i class="fa-solid fa-user-plus"></i> Recruitment
             </button>
-            <button class="menu-item" onclick="openTab('reinstatement')">
+            <button class="menu-item disabled">
                 <i class="fa-solid fa-rotate-left"></i> Reinstatement
             </button>
-            <button class="menu-item" onclick="openTab('ridealong')">
+            <button class="menu-item disabled">
                 <i class="fa-solid fa-car"></i> Ride Along
             </button>
-            <button class="menu-item" onclick="openTab('commendations')">
+            <button class="menu-item disabled">
                 <i class="fa-solid fa-star"></i> Commendations
             </button>
-            <button class="menu-item" onclick="openTab('public')">
+            <button class="menu-item disabled">
                 <i class="fa-solid fa-newspaper"></i> Public Releases
             </button>
         </div>
 
         <div class="sidebar-footer">
-            <p>&copy; 2025 LSEMS</p>
+            <p>&copy; 2026 LSEMS</p>
         </div>
     </nav>
 
@@ -48,7 +48,7 @@
         <div id="recruitment" class="tab-content active">
             <div class="form-header">
                 <h1>Employment Application</h1>
-                <p>Complete all fields below. The system will format your BBCode automatically.</p>
+                <p>Complete all fields. The system will format your BBCode automatically.</p>
                 <div class="alert-box">
                     <strong>TOPIC TITLE FORMAT:</strong> LSEMS Application - [First Name] [Last Name]
                 </div>
@@ -88,18 +88,9 @@
                 </div>
 
                 <div class="grid-3">
-                    <div class="input-group">
-                        <label>Weight</label>
-                        <input type="text" id="p_weight">
-                    </div>
-                    <div class="input-group">
-                        <label>Height</label>
-                        <input type="text" id="p_height">
-                    </div>
-                    <div class="input-group">
-                        <label>Phone Number</label>
-                        <input type="text" id="p_phone">
-                    </div>
+                    <div class="input-group"><label>Weight</label><input type="text" id="p_weight"></div>
+                    <div class="input-group"><label>Height</label><input type="text" id="p_height"></div>
+                    <div class="input-group"><label>Phone Number</label><input type="text" id="p_phone"></div>
                 </div>
 
                 <div class="input-group">
@@ -134,10 +125,7 @@
                     <div class="input-group"><label>Reason for Leaving</label><input type="text" id="e_reason"></div>
                 </div>
 
-                <div class="input-group">
-                    <label>Job Duties</label>
-                    <textarea id="e_duties" rows="3"></textarea>
-                </div>
+                <div class="input-group"><label>Job Duties</label><textarea id="e_duties" rows="3"></textarea></div>
 
                 <div class="grid-2">
                     <div class="input-group">
@@ -149,10 +137,7 @@
                         <select id="e_write"><option>Yes</option><option>No</option></select>
                     </div>
                 </div>
-                <div class="input-group">
-                    <label>2.5) Other Languages</label>
-                    <input type="text" id="e_langs">
-                </div>
+                <div class="input-group"><label>2.5) Other Languages</label><input type="text" id="e_langs"></div>
             </div>
 
             <div class="form-card">
@@ -208,9 +193,8 @@
                     </div>
                 </div>
                 <div class="input-group"><label>If yes, please elaborate:</label><input type="text" id="o_elab"></div>
-
-                <div class="input-group"><label>Inspiration (Optional)</label><input type="text" id="o_insp"></div>
-                <div class="input-group"><label>Additional Info (Optional)</label><textarea id="o_else" rows="2"></textarea></div>
+                <div class="input-group"><label>Inspiration</label><input type="text" id="o_insp"></div>
+                <div class="input-group"><label>Additional Info</label><textarea id="o_else" rows="2"></textarea></div>
 
                 <div class="input-group">
                     <label style="color: #7d1a1a;">AI & Plagiarism Confirmation</label>
@@ -227,21 +211,6 @@
                 </button>
             </div>
         </div>
-
-        <div id="reinstatement" class="tab-content">
-            <div class="form-header">
-                <h1>Reinstatement Request</h1>
-                <p>For former employees seeking to return to duty.</p>
-            </div>
-            <div class="form-card">
-                <p style="padding: 20px; text-align: center; color: #666;">This form is currently under maintenance.</p>
-            </div>
-        </div>
-
-        <div id="ridealong" class="tab-content"><div class="form-header"><h1>Ride Along Application</h1></div></div>
-        <div id="commendations" class="tab-content"><div class="form-header"><h1>Commendations & Complaints</h1></div></div>
-        <div id="public" class="tab-content"><div class="form-header"><h1>Public Press Releases</h1></div></div>
-
     </main>
 
     <script src="script.js"></script>
