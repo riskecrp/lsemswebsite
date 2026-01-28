@@ -19,7 +19,7 @@
             <button class="menu-item active" onclick="openTab('recruitment')">
                 <i class="fa-solid fa-user-plus"></i> Recruitment
             </button>
-            <button class="menu-item disabled">
+            <button class="menu-item" onclick="openTab('reinstatement')">
                 <i class="fa-solid fa-rotate-left"></i> Reinstatement
             </button>
             <button class="menu-item disabled">
@@ -48,7 +48,7 @@
         <div id="recruitment" class="tab-content active">
             <div class="form-header">
                 <h1>Employment Application</h1>
-                <p>Complete all fields. The system will generate the official BBCode format.</p>
+                <p>Complete all fields. The system will format your BBCode exactly as required.</p>
                 <div class="alert-box">
                     <strong>TOPIC TITLE FORMAT:</strong> LSEMS Application - [First Name] [Last Name]
                 </div>
@@ -62,14 +62,8 @@
                         <label>Title</label>
                         <select id="p_title"><option>Mr.</option><option>Ms.</option><option>Mrs.</option><option>Mx.</option></select>
                     </div>
-                    <div class="input-group">
-                        <label>First Name</label>
-                        <input type="text" id="p_fname">
-                    </div>
-                    <div class="input-group">
-                        <label>Last Name</label>
-                        <input type="text" id="p_lname">
-                    </div>
+                    <div class="input-group"><label>First Name</label><input type="text" id="p_fname"></div>
+                    <div class="input-group"><label>Last Name</label><input type="text" id="p_lname"></div>
                 </div>
 
                 <div class="grid-3">
@@ -77,14 +71,8 @@
                         <label>1.2) Gender</label>
                         <select id="p_gender"><option value="Male">Male</option><option value="Female">Female</option><option value="Other">Other</option></select>
                     </div>
-                    <div class="input-group">
-                        <label>1.3) Date of Birth</label>
-                        <input type="text" id="p_dob" placeholder="DD/MMM/YYYY">
-                    </div>
-                    <div class="input-group">
-                        <label>Place of Birth</label>
-                        <input type="text" id="p_pob" placeholder="City, State">
-                    </div>
+                    <div class="input-group"><label>1.3) Date of Birth</label><input type="text" id="p_dob" placeholder="DD/MMM/YYYY"></div>
+                    <div class="input-group"><label>Place of Birth</label><input type="text" id="p_pob" placeholder="City, State"></div>
                 </div>
 
                 <div class="grid-3">
@@ -99,12 +87,12 @@
                 </div>
                 
                 <div class="input-group">
-                    <label>1.6.1) If yes, have you gone through the Felon Reformation Program, Detention and Parole Bureau, or therapy with the LSEMS?</label>
+                    <label>1.6.1) If yes, have you gone through the Felon Reformation Program...?</label>
                     <textarea id="p_ref" rows="3"></textarea>
                 </div>
 
                 <div class="input-group">
-                    <label>1.7) Please provide proof of your identification and license (Driver's license required).</label>
+                    <label>1.7) Please provide proof of your identification and license.</label>
                     <input type="text" id="p_id" placeholder="Imgur Link">
                 </div>
             </div>
@@ -112,7 +100,7 @@
             <div class="form-card">
                 <div class="section-label">SECTION 2 - EXPERIENCES, PAST EMPLOYMENT, AND REFERENCES</div>
                 <div class="input-group">
-                    <label>2.1) Please list and explain all prior Employment/Education/Training that you may have that qualifies you for a position.</label>
+                    <label>2.1) Please list and explain all prior Employment/Education/Training...</label>
                     <textarea id="e_quals" rows="4"></textarea>
                 </div>
 
@@ -137,25 +125,25 @@
                         <select id="e_write"><option>Yes</option><option>No</option></select>
                     </div>
                 </div>
-                <div class="input-group"><label>2.5) Please state any language(s) you know other than English and identify if you can read, write or speak the language(s).</label><input type="text" id="e_langs"></div>
+                <div class="input-group"><label>2.5) Please state any language(s) you know...</label><input type="text" id="e_langs"></div>
             </div>
 
             <div class="form-card">
                 <div class="section-label">SECTION 3 - GENERAL QUESTIONS</div>
                 <div class="input-group">
-                    <label>3.1) What is your motivation behind wanting to join the Los Santos Emergency Medical Services? (min 75 words)</label>
+                    <label>3.1) What is your motivation behind wanting to join LSEMS? (min 75 words)</label>
                     <textarea id="g_mot" rows="6"></textarea>
                 </div>
                 <div class="input-group">
-                    <label>3.2) What makes you a good candidate to join the Los Santos Emergency Medical Services? (min 75 words)</label>
+                    <label>3.2) What makes you a good candidate? (min 75 words)</label>
                     <textarea id="g_cand" rows="6"></textarea>
                 </div>
                 <div class="input-group">
-                    <label>3.3) If hired, how would you help improve the Los Santos Emergency Medical Services? (min 75 words)</label>
+                    <label>3.3) If hired, how would you help improve LSEMS? (min 75 words)</label>
                     <textarea id="g_imp" rows="6"></textarea>
                 </div>
                 <div class="input-group">
-                    <label>3.4) Please provide a short biography about yourself and your most valuable trait is that could benefit the department (min 75 words)</label>
+                    <label>3.4) Please provide a short biography about yourself... (min 75 words)</label>
                     <textarea id="g_bio" rows="6"></textarea>
                 </div>
             </div>
@@ -182,13 +170,13 @@
                 <div class="input-group"><label>4.4) List any faction(s) you are currently a part of:</label><input type="text" id="o_factions"></div>
                 
                 <div class="input-group">
-                    <label>4.5) Please provide any roleplay or real-life experience that you have acquired that may benefit the LSEMS as a faction...</label>
+                    <label>4.5) Please provide any roleplay or real-life experience...</label>
                     <textarea id="o_exp" rows="3"></textarea>
                 </div>
 
                 <div class="grid-2">
                     <div class="input-group">
-                        <label>4.6) Do you have a working microphone and are you able to use TeamSpeak?</label>
+                        <label>4.6) Do you have a working microphone...?</label>
                         <select id="o_mic"><option>Yes</option><option>No</option></select>
                     </div>
                     <div class="input-group">
@@ -198,14 +186,14 @@
                 </div>
                 <div class="input-group"><label>If yes, please elaborate:</label><input type="text" id="o_elab"></div>
 
-                <div class="input-group"><label>4.8) What or who inspired you to make this Application? (Optional)</label><input type="text" id="o_insp"></div>
-                <div class="input-group"><label>4.9) Would you like to add anything else? (Optional)</label><textarea id="o_else" rows="2"></textarea></div>
+                <div class="input-group"><label>4.8) What or who inspired you to make this Application?</label><input type="text" id="o_insp"></div>
+                <div class="input-group"><label>4.9) Would you like to add anything else?</label><textarea id="o_else" rows="2"></textarea></div>
 
                 <div class="input-group">
-                    <label style="color: #7d1a1a;">4.10) Do you confirm you have written all of your answers in the above application on your own?</label>
+                    <label style="color: #7d1a1a;">4.10) Do you confirm you have written all of your answers...</label>
                     <select id="o_ai">
                         <option value="Yes">Yes, I do.</option>
-                        <option value="AI">I utilized AI-based text generators to assist me.</option>
+                        <option value="AI">I utilized AI-based text generators.</option>
                         <option value="Gram">I utilized Grammar-assist software.</option>
                     </select>
                 </div>
@@ -213,10 +201,98 @@
 
             <div class="action-bar">
                 <button class="submit-btn" onclick="generateRecruitmentBB()">
-                    <i class="fa-solid fa-file-export"></i> GENERATE APPLICATION
+                    <i class="fa-solid fa-file-export"></i> GENERATE RECRUITMENT APP
                 </button>
             </div>
         </div>
+
+        <div id="reinstatement" class="tab-content">
+            <div class="form-header">
+                <h1>Reinstatement Application</h1>
+                <p>For former employees seeking to return to duty.</p>
+                <div class="alert-box">
+                    <strong>TOPIC TITLE FORMAT:</strong> LSEMS Reinstatement - [First Name] [Last Name]
+                </div>
+            </div>
+
+            <div class="form-card">
+                <div class="section-label">1. PERSONAL INFORMATION</div>
+                <div class="grid-3">
+                    <div class="input-group"><label>First Name</label><input type="text" id="r_fname"></div>
+                    <div class="input-group"><label>Middle Name</label><input type="text" id="r_mname"></div>
+                    <div class="input-group"><label>Last Name</label><input type="text" id="r_lname"></div>
+                </div>
+                <div class="input-group"><label>1.2 Phone Number</label><input type="text" id="r_phone" placeholder="000-0000"></div>
+                <div class="input-group"><label>1.2 Please provide proof of your identification and license.</label><input type="text" id="r_id" placeholder="Imgur Link"></div>
+            </div>
+
+            <div class="form-card">
+                <div class="section-label">2. EMPLOYMENT INFORMATION</div>
+                <div class="grid-3">
+                    <div class="input-group"><label>Former Rank</label><input type="text" id="r_rank"></div>
+                    <div class="input-group"><label>Employment End Date</label><input type="text" id="r_end_date"></div>
+                    <div class="input-group"><label>Reason</label><input type="text" id="r_reason"></div>
+                </div>
+                <div class="input-group"><label>Desired Rank</label><input type="text" id="r_desired_rank"></div>
+                <div class="input-group">
+                    <label>2.2 If you filed for resignation, what was the reason behind doing so?</label>
+                    <textarea id="r_resig_reason" rows="3"></textarea>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <div class="section-label">3. EMPLOYMENT DURING ABSENCE</div>
+                <div class="grid-2">
+                    <div class="input-group"><label>Company</label><input type="text" id="r_abs_company"></div>
+                    <div class="input-group"><label>Position</label><input type="text" id="r_abs_pos"></div>
+                </div>
+                <div class="grid-2">
+                    <div class="input-group"><label>Employment End Date</label><input type="text" id="r_abs_end"></div>
+                    <div class="input-group"><label>Reason</label><input type="text" id="r_abs_reason"></div>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <div class="section-label">4. GENERAL QUESTIONS</div>
+                <div class="input-group">
+                    <label>4.1 What is your motivation behind reinstating back to LSEMS?</label>
+                    <textarea id="r_motivation" rows="4"></textarea>
+                </div>
+                <div class="input-group">
+                    <label>4.2 Have you had any felony or misdemeanor charges against you in the time that you were gone?</label>
+                    <textarea id="r_charges" rows="3"></textarea>
+                </div>
+                <div class="input-group">
+                    <label>4.3 What have you done since your resignation or termination?</label>
+                    <textarea id="r_activities" rows="4"></textarea>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <div class="section-label">5. OOC INFORMATION</div>
+                <div class="grid-2">
+                    <div class="input-group"><label>Forum Account Name</label><input type="text" id="r_forum_name"></div>
+                    <div class="input-group"><label>Forum Profile Link</label><input type="text" id="r_forum_link"></div>
+                </div>
+                <div class="input-group"><label>5.2 Admin Record (Character list & Admin logs only)</label><input type="text" id="r_admin_record" placeholder="Imgur Link"></div>
+                <div class="input-group">
+                    <label>5.3 List all the factions you are currently a part of across all characters:</label>
+                    <textarea id="r_factions" rows="3"></textarea>
+                </div>
+                <div class="input-group"><label>5.4 Discord Username (Name#0000)</label><input type="text" id="r_discord"></div>
+                <div class="input-group">
+                    <label>5.5 What have you done on Eclipse Roleplay following your departure from LSEMS?</label>
+                    <textarea id="r_ecrp_activities" rows="4"></textarea>
+                </div>
+            </div>
+
+            <div class="action-bar">
+                <button class="submit-btn" onclick="generateReinstatementBB()">
+                    <i class="fa-solid fa-file-export"></i> GENERATE REINSTATEMENT
+                </button>
+            </div>
+        </div>
+
     </main>
 
     <script src="script.js"></script>
