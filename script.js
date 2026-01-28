@@ -5,14 +5,18 @@ function openTab(tabName) {
     const buttons = document.querySelectorAll('.menu-item');
     buttons.forEach(btn => btn.classList.remove('active'));
 
-    document.getElementById(tabName).classList.add('active');
+    const selectedContent = document.getElementById(tabName);
+    if(selectedContent) selectedContent.classList.add('active');
     
-    // Highlight sidebar item
-    if(tabName === 'recruitment') {
-        buttons[0].classList.add('active');
-    }
+    // Logic to highlight sidebar buttons based on click
+    // Finding the button that called the function
+    const clickedBtn = Array.from(buttons).find(btn => btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(tabName));
+    if(clickedBtn) clickedBtn.classList.add('active');
 }
 
+// ----------------------------------------------------
+// GENERATE RECRUITMENT BBCODE
+// ----------------------------------------------------
 function generateRecruitmentBB() {
     // 1. GATHER DATA
     const title = document.getElementById('p_title').value;
@@ -25,7 +29,7 @@ function generateRecruitmentBB() {
     const other = document.getElementById('o_other').value;
     const ai = document.getElementById('o_ai').value;
 
-    // 2. BUILD EXACT BBCODE TEMPLATE (Question text preserved 100%)
+    // 2. BUILD EXACT BBCODE TEMPLATE
     const bbCode = `[img]https://i.imgur.com/a32OdzR.png[/img]
 [lsemssubtitle]SECTION 1 - PERSONAL INFORMATION[/lsemssubtitle]
 [divbox=white]
@@ -205,9 +209,128 @@ ${document.getElementById('o_else').value || 'ANSWER'}
 [/divbox]
 [LSEMSfooter][/LSEMSfooter]`;
 
-    // 3. FORCE COPY LOGIC (Hidden Textarea Method)
+    copyAndOpen(bbCode, "https://gov.eclipse-rp.net/viewforum.php?f=575");
+}
+
+// ----------------------------------------------------
+// GENERATE REINSTATEMENT BBCODE
+// ----------------------------------------------------
+function generateReinstatementBB() {
+    // 1. GATHER DATA
+    const fname = document.getElementById('r_fname').value;
+    const mname = document.getElementById('r_mname').value;
+    const lname = document.getElementById('r_lname').value;
+    
+    // 2. BUILD EXACT BBCODE TEMPLATE
+    const bbCode = `[img]https://i.imgur.com/kwvK4Nt.png[/img]
+[lsemssubtitle]1. PERSONAL INFORMATION[/lsemssubtitle]
+[divbox=white]
+[b]1.1 Name[/b]
+[list=none]
+[*]First Name: ${fname}
+[*]Middle Name: ${mname}
+[*]Last Name: ${lname}
+[/list]
+
+[b]1.2 Phone Number[/b]
+[list=none]
+[*]Phone Number: ${document.getElementById('r_phone').value}
+[/list]
+
+[b]1.2 Please provide proof of your identification and license [color=Firebrick](Driver's license required)[/color].[/b]
+[list=none]
+[url=${document.getElementById('r_id').value}]Attached Documents[/url]
+[/list]
+[/divbox]
+
+[lsemssubtitle]2. EMPLOYMENT INFORMATION[/lsemssubtitle]
+[divbox=white]
+[b]2.1 Department Employment Details:[/b]
+[list=none]
+[*][b]Former Rank:[/b] ${document.getElementById('r_rank').value}
+[*][b]Employment End Date:[/b] ${document.getElementById('r_end_date').value}
+[*][b]Reason:[/b] ${document.getElementById('r_reason').value}
+[/list]
+
+[list=none]
+[*][b]Desired Rank:[/b] ${document.getElementById('r_desired_rank').value}.
+[/list]
+
+[b]2.2 If you filed for resignation with the Los Santos Emergency Medical Services, what was the reason behind doing so? [/b]
+[list=none]
+[*] ${document.getElementById('r_resig_reason').value}
+[/list]
+[/divbox]
+
+[lsemssubtitle]3. EMPLOYMENT DURING ABSENCE[/lsemssubtitle]
+[divbox=white]
+[b]3.1 Employment during absence[/b]
+[list=none]
+[*][b]Company:[/b] ${document.getElementById('r_abs_company').value}
+[*][b]Position:[/b] ${document.getElementById('r_abs_pos').value}
+[*][b]Employment End Date:[/b] ${document.getElementById('r_abs_end').value}
+[*][b]Reason:[/b] ${document.getElementById('r_abs_reason').value}
+[/list]
+[/divbox]
+
+[lsemssubtitle]4. GENERAL QUESTIONS[/lsemssubtitle]
+[divbox=white]
+[b]4.1 What is your motivation behind reinstating back to the Los Santos Emergency Medical Services?[/b]
+[list=none]
+[*] ${document.getElementById('r_motivation').value}
+[/list]
+
+[b]4.2 Have you had any felony or misdemeanor charges against you in the time that you were gone?[/b]
+[list=none]
+[*] ${document.getElementById('r_charges').value}
+[/list]
+
+[b]4.3 What have you done since your resignation or termination?[/b]
+[list=none]
+[*] ${document.getElementById('r_activities').value}
+[/list]
+
+[/divbox]
+
+[lsemssubtitle][ooc]5. OOC INFORMATION[/ooc][/lsemssubtitle]
+[divbox=white]
+[b]5.1 ECRP Forum Profile[/b]
+[list=none]
+Forum Account Name: ${document.getElementById('r_forum_name').value}
+Forum Profile Link: [url=${document.getElementById('r_forum_link').value}]PRESS HERE[/url]
+[/list]
+
+[b]5.2 Please provide an unedited screenshot of your admin record [color=Firebrick](only the character list and admin logs!)[/color] Example of what to crop [url=https://imgur.com/0nNC84j]here[/url].[/b]
+[list=none]
+[url=${document.getElementById('r_admin_record').value}]Admin Record[/url]
+[/list]
+
+[b]5.3 List all the factions you are currently a part of across all characters:[/b]
+[list=none]
+${document.getElementById('r_factions').value}
+[/list]
+
+[b]5.4 Discord Username (Example: Name#0000):[/b]
+[list=none]
+[*]${document.getElementById('r_discord').value}
+[/list]
+
+[b]5.5 What have you done on Eclipse Roleplay following your departure from the Los Santos Emergency Medical Services?[/b] 
+[list=none]
+${document.getElementById('r_ecrp_activities').value}
+[/list]
+[/divbox]
+[LSEMSfooter][/LSEMSfooter]`;
+
+    copyAndOpen(bbCode, "https://gov.eclipse-rp.net/viewforum.php?f=576");
+}
+
+// ----------------------------------------------------
+// UTILITY: COPY AND OPEN URL
+// ----------------------------------------------------
+function copyAndOpen(text, url) {
     const textArea = document.createElement("textarea");
-    textArea.value = bbCode;
+    textArea.value = text;
     textArea.style.position = "fixed"; 
     textArea.style.opacity = "0";
     document.body.appendChild(textArea);
@@ -218,7 +341,7 @@ ${document.getElementById('o_else').value || 'ANSWER'}
         if(successful) {
             alert("SUCCESS!\n\nBBCode copied to clipboard.\n\nOpening forum in 2 seconds...");
             setTimeout(() => {
-                window.open("https://gov.eclipse-rp.net/viewforum.php?f=575", "_blank");
+                window.open(url, "_blank");
             }, 100);
         } else {
             alert("Copy failed. Please manually copy the code.");
