@@ -7,7 +7,7 @@ function openTab(tabName) {
 
     document.getElementById(tabName).classList.add('active');
     
-    // Highlight sidebar item logic
+    // Highlight sidebar item
     if(tabName === 'recruitment') {
         buttons[0].classList.add('active');
     }
@@ -25,7 +25,7 @@ function generateRecruitmentBB() {
     const other = document.getElementById('o_other').value;
     const ai = document.getElementById('o_ai').value;
 
-    // 2. BUILD EXACT BBCODE TEMPLATE
+    // 2. BUILD EXACT BBCODE TEMPLATE (Question text preserved 100%)
     const bbCode = `[img]https://i.imgur.com/a32OdzR.png[/img]
 [lsemssubtitle]SECTION 1 - PERSONAL INFORMATION[/lsemssubtitle]
 [divbox=white]
@@ -195,9 +195,9 @@ ${document.getElementById('o_else').value || 'ANSWER'}
 
 [b]4.10) Do you confirm you have written all of your answers in the above application on your own and without the use of AI-based text generators?*[/b]
 [list=none]
-[*][${ai === 'Yes' ? '  ' : '  '}] Yes, I do.
-[*][${ai === 'AI' ? '  ' : '  '}] I utilized AI-based text generators to assist me.
-[*][${ai === 'Gram' ? '  ' : '  '}] I utilized Grammar-assist software*, but have otherwise written the application myself (Light use is irrelevant).
+[*][${ai === 'Yes' ? 'X' : ' '}] Yes, I do.
+[*][${ai === 'AI' ? 'X' : ' '}] I utilized AI-based text generators to assist me.
+[*][${ai === 'Gram' ? 'X' : ' '}] I utilized Grammar-assist software*, but have otherwise written the application myself (Light use is irrelevant).
 
 *Grammar-assist software, such as Grammarly, may be flagged as AI when used to edit larger portions of text. 
 [/list]
